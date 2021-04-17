@@ -25,13 +25,15 @@ const useStyles = makeStyles((theme) => ({
 
 function Input(props) {
     const classes = useStyles();
-    // console.log(props.onChage)
+    const onChange = e => props.onChange(props.index, e);
     return (
         <MUInput className={classes.input}
                  tabIndex={props.index}
                  type='number'
                  ref={props.refObj}
-                 onKeyUp={e => props.onChange(props.index, e)}
+                 onKeyUp={onChange}
+                 onKeyDown={onChange}
+                 onInput={onChange}
                  inputProps={{
                      min: '0',
                      max: '9',
