@@ -1,7 +1,8 @@
-import React, {useRef, useEffect} from 'react';
+import {useRef, useEffect} from 'react';
 import {Grid, Typography} from '@material-ui/core';
 import {makeStyles} from "@material-ui/core/styles";
 import Input from "./CheckDigit/Input";
+import Result from "./CheckDigit/Result";
 import {useSelector, useDispatch} from 'react-redux';
 import {setInput} from '../store/ducks/checkDigit';
 
@@ -12,7 +13,8 @@ const useStyles = makeStyles((theme) => ({
 
     title: {
         textAlign: 'center',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontSize: '32px'
     },
 
     wrapper: {
@@ -101,7 +103,9 @@ function CheckDigit() {
 
     return (
         <div className={classes.wrapper}>
+
             <Typography className={classes.title} component="h1">Checking Digit Generator</Typography>
+
             <Grid className={classes.form} container>
                 {[...Array(inputLength)].map((x, i) => {
                         return (
@@ -115,6 +119,8 @@ function CheckDigit() {
                     }
                 )}
             </Grid>
+
+            <Result />
         </div>
     );
 }
